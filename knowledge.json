@@ -1,0 +1,53 @@
+{
+  "articles": [
+    {
+      "id": "what-is-ncr",
+      "title_az": "NCR (Uyğunsuzluq Hesabatı) nədir?",
+      "summary_az": "NCR layihə tələblərinə, standartlara və ya spesifikasiyalara uyğun olmayan işi rəsmi qeydə alan sənəddir.",
+      "body_az": "NCR (Non-Conformance Report — Uyğunsuzluq Hesabatı) tikinti və istehsalat layihələrində icra olunan işin, materialın və ya prosesin təsdiqlənmiş çertyoj, spesifikasiya, standart və ya müqavilə tələblərinə uyğun olmadığı hallarda tərtib edilən rəsmi sənəddir. NCR sənədi problemi izah edir, məsul tərəfi müəyyən edir, düzəldici tədbirlər üçün müddət təyin edir və işin bağlanmasını təsdiqləyən imza xanaları ilə başa çatır. Düzgün aparılan NCR reyestri layihənin keyfiyyət tarixçəsini şəffaf şəkildə saxlamağa və təkrarlanan problemlərin kök səbəbini müəyyənləşdirməyə kömək edir."
+    },
+    {
+      "id": "what-is-rfi",
+      "title_az": "RFI (İnformasiya Sorğusu) nədir?",
+      "summary_az": "RFI layihə iştirakçıları arasında texniki qeyri-müəyyənlikləri aydınlaşdırmaq üçün istifadə olunan rəsmi sorğu formasıdır.",
+      "body_az": "RFI (Request For Information) — çertyojlarda, spesifikasiyalarda və ya müqavilə sənədlərində aydın olmayan məqamlar yarandıqda podratçı, layihəçi və ya sifarişçi arasında rəsmi yazışma vasitəsilə istifadə edilən sorğu formasıdır. RFI-də sual dəqiq ifadə olunur, təsirlənən iş bölməsi göstərilir və cavab üçün son tarix qeyd edilir. RFI jurnalı bütün açıq və bağlanmış sorğuların izlənməsinə imkan verir və gecikmələrin qarşısını almaqda mühüm rol oynayır."
+    },
+    {
+      "id": "what-is-mir",
+      "title_az": "MIR (Material Yoxlama Sorğusu) nədir?",
+      "summary_az": "MIR sahəyə gətirilən materialların istifadəyə yararlılığını təsdiqləmək üçün müfəttişdən yoxlama tələb edən sənəddir.",
+      "body_az": "MIR (Material Inspection Request) tikinti sahəsinə çatdırılan materialların (armatur, beton qarışığı, boru, elektrik kabeli və s.) təsdiqlənmiş spesifikasiyalara uyğunluğunu yoxlamaq üçün podratçı tərəfindən müştəri müfəttişinə göndərilən rəsmi sorğudur. MIR sertifikatları, çeşid nömrələrini və miqdarı özündə əks etdirir və yoxlamanın nəticəsi əsasında materialın sahədə istifadəsinə icazə verilir və ya rədd edilir."
+    },
+    {
+      "id": "what-is-snag-list",
+      "title_az": "Snag List (Qüsurlar Siyahısı) nədir?",
+      "summary_az": "Snag List layihənin təhvil mərhələsində aşkar edilən kiçik qüsurların siyahısıdır.",
+      "body_az": "Snag List (bəzən Punch List də adlanır) layihə başa çatdıqdan sonra, lakin son təhvildən əvvəl aparılan yoxlama zamanı aşkarlanan kiçik çatışmazlıqların, bitirilməmiş işlərin və kosmetik qüsurların siyahısıdır. Hər bir maddə üçün yer, təsvir, məsul podratçı və düzəliş üçün son tarix qeyd olunur. Bütün maddələr bağlandıqdan sonra sahə rəsmi təhvil-təslimə hazır sayılır."
+    },
+    {
+      "id": "what-is-boq",
+      "title_az": "BOQ (İşlərin Həcmi Cədvəli) nədir?",
+      "summary_az": "BOQ layihədə görüləcək bütün işlərin, materialların və miqdarların ətraflı siyahısıdır.",
+      "body_az": "BOQ (Bill of Quantities) tender və müqavilə mərhələsində istifadə olunan, layihədəki hər bir iş növünün ölçü vahidi, miqdarı və vahid qiyməti ilə birlikdə göstərildiyi maliyyə-texniki sənəddir. BOQ podratçılara qiymət təklifi hazırlamağa, sifarişçiyə isə təklifləri müqayisə etməyə imkan verir və müqavilə boyunca ödəniş hesablamalarının əsasını təşkil edir."
+    },
+    {
+      "id": "what-is-method-statement",
+      "title_az": "Metod Bəyanatı (Method Statement) nədir?",
+      "summary_az": "Metod Bəyanatı müəyyən bir işin necə, hansı ardıcıllıqla və hansı təhlükəsizlik tədbirləri ilə görüləcəyini izah edən sənəddir.",
+      "body_az": "Method Statement — konkret bir iş fəaliyyətinin (məsələn, beton tökmə, qazıntı işləri, hündürlükdə iş) addım-addım icra ardıcıllığını, istifadə olunacaq avadanlığı, işçi qüvvəsini, resursları və əlaqədar risklərin idarə olunma üsullarını izah edən texniki sənəddir. Adətən Risklərin Qiymətləndirilməsi ilə birlikdə hazırlanır və işə başlamazdan əvvəl təsdiqlənməlidir."
+    },
+    {
+      "id": "what-is-jsa",
+      "title_az": "JSA (İş Təhlükəsizliyi Təhlili) nədir?",
+      "summary_az": "JSA konkret tapşırığın hər addımını təhlil edərək mövcud təhlükələri və nəzarət tədbirlərini müəyyən edir.",
+      "body_az": "JSA (Job Safety Analysis) bir işin ayrı-ayrı mərhələlərə bölünərək hər mərhələdə mövcud ola biləcək təhlükələrin sistemli şəkildə müəyyən edildiyi və hər təhlükə üçün konkret nəzarət tədbirinin təyin olunduğu təhlükəsizlik sənədidir. JSA işə başlamazdan əvvəl briqada ilə birgə nəzərdən keçirilir və bütün iştirakçılar tərəfindən imzalanır."
+    },
+    {
+      "id": "what-is-toolbox-talk",
+      "title_az": "Toolbox Talk nədir?",
+      "summary_az": "Toolbox Talk iş gününə başlamazdan əvvəl keçirilən qısa təhlükəsizlik briefinqidir.",
+      "body_az": "Toolbox Talk — iş sahəsində hər növbənin əvvəlində keçirilən 5-15 dəqiqəlik qısa təhlükəsizlik görüşüdür. Həmin gün görüləcək işlərlə bağlı təhlükələr, təhlükəsizlik tələbləri və son hadisələrdən çıxarılan nəticələr işçilərlə paylaşılır. İştirak edən bütün işçilərin imzası qeydə alınır və bu sənəd HSE auditləri zamanı sübut kimi istifadə olunur."
+    }
+  ]
+}
+
