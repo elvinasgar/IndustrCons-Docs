@@ -1,0 +1,87 @@
+/* ==========================================================================
+   IndustrCons Docs — Design Tokens
+   Concept: "Engineering Blueprint" — drafting-table blues, stamped approval
+   seals, monospace drawing numbers. Built for AZ-first construction docs.
+   ========================================================================== */
+:root {
+  /* Color: blueprint palette */
+  --ic-navy-950: #0A1E33;      /* deepest blueprint navy — headers, footer */
+  --ic-navy-800: #123A5C;      /* primary dark */
+  --ic-blue-700: #1B4B7A;      /* primary brand blue */
+  --ic-blue-500: #2E86DE;      /* interactive / accent blue */
+  --ic-blue-100: #E3EEF9;      /* tint backgrounds */
+  --ic-amber-500: #F2A93B;     /* hi-vis accent — premium / CTA stamp */
+  --ic-amber-600: #DE8E1B;
+  --ic-gray-900: #1B2430;
+  --ic-gray-600: #5B6B7C;
+  --ic-gray-300: #D6DEE6;
+  --ic-gray-100: #F3F6F9;
+  --ic-white: #FFFFFF;
+  --ic-success: #1E9E6B;
+  --ic-danger: #D9483C;
+
+  /* Semantic (light mode default) */
+  --bg-page: var(--ic-gray-100);
+  --bg-surface: var(--ic-white);
+  --bg-surface-2: var(--ic-blue-100);
+  --text-primary: var(--ic-gray-900);
+  --text-secondary: var(--ic-gray-600);
+  --text-inverse: var(--ic-white);
+  --border-default: var(--ic-gray-300);
+  --brand: var(--ic-blue-700);
+  --brand-strong: var(--ic-navy-800);
+  --accent: var(--ic-blue-500);
+  --stamp: var(--ic-amber-500);
+
+  /* Blueprint grid line, used as subtle texture */
+  --grid-line: rgba(27, 75, 122, 0.08);
+
+  /* Typography */
+  --font-display: "Space Grotesk", "IBM Plex Sans", sans-serif;
+  --font-body: "Inter", "IBM Plex Sans", sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+
+  /* Scale */
+  --fs-h1: clamp(2.25rem, 4vw + 1rem, 3.75rem);
+  --fs-h2: clamp(1.75rem, 2vw + 1rem, 2.5rem);
+  --fs-h3: 1.375rem;
+  --fs-body: 1rem;
+  --fs-small: 0.875rem;
+  --fs-mono: 0.8125rem;
+
+  /* Spacing */
+  --sp-1: 0.25rem; --sp-2: 0.5rem; --sp-3: 0.75rem; --sp-4: 1rem;
+  --sp-5: 1.5rem; --sp-6: 2rem; --sp-8: 3rem; --sp-10: 4rem; --sp-12: 6rem;
+
+  /* Radius & shadow */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --shadow-sm: 0 1px 2px rgba(10, 30, 51, 0.06);
+  --shadow-md: 0 8px 24px rgba(10, 30, 51, 0.10);
+  --shadow-lg: 0 20px 48px rgba(10, 30, 51, 0.16);
+
+  --transition: 180ms cubic-bezier(.4,0,.2,1);
+}
+
+[data-theme="dark"] {
+  --bg-page: #0A1420;
+  --bg-surface: #111E2E;
+  --bg-surface-2: #16283C;
+  --text-primary: #EAF1F8;
+  --text-secondary: #93A6B8;
+  --text-inverse: #0A1420;
+  --border-default: #223347;
+  --brand: #4A9BEB;
+  --brand-strong: #6BB1F5;
+  --accent: #4A9BEB;
+  --stamp: #F2A93B;
+  --grid-line: rgba(74, 155, 235, 0.08);
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.3);
+  --shadow-md: 0 8px 24px rgba(0,0,0,0.4);
+  --shadow-lg: 0 20px 48px rgba(0,0,0,0.5);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+}

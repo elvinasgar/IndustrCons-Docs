@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Tez-tez Verilən Suallar — IndustrCons Docs</title>
+<meta name="description" content="IndustrCons Docs haqqında ən çox verilən suallar: ödəniş, PDF endirmə, hesab, sənəd əlavəsi." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="style.css" />
+<style>
+.faq-item { border-bottom: 1px solid var(--border-default); padding: var(--sp-5) 0; }
+.faq-item summary { cursor: pointer; font-weight: 600; font-size: 1.02rem; list-style: none; display:flex; justify-content:space-between; align-items:center; }
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after { content: "+"; font-size: 1.4rem; color: var(--brand); }
+.faq-item[open] summary::after { content: "–"; }
+.faq-item p { margin-top: var(--sp-3); }
+</style>
+</head>
+<body>
+<div data-include="header.html"></div>
+
+<section style="padding-top:var(--sp-8);">
+  <div class="container" style="max-width:760px;">
+    <span class="section-eyebrow">Dəstək</span>
+    <h1 style="font-size:2.25rem;">Tez-tez Verilən Suallar</h1>
+
+    <div style="margin-top:var(--sp-6);">
+      <details class="faq-item" open>
+        <summary>Sənədləri necə hazırlayıram?</summary>
+        <p>İstədiyiniz sənədi Sənədlər bölməsindən seçin, şirkət/layihə/tarix kimi məlumatları daxil edin və "PDF Endir" düyməsini basın. Sənəd brauzerinizdə birbaşa yaradılır.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Önizləmə pulsuzdurmu?</summary>
+        <p>Bəli. Bütün sənədləri PDF şəklində önizləmə edə bilərsiniz. Yalnız sənədi endirmək üçün ödəniş tələb olunur.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Hansı ödəniş üsulları dəstəklənəcək?</summary>
+        <p>Platforma Stripe, Lemon Squeezy, Payriff və Kapital Bank ilə inteqrasiya üçün hazırlanıb. Hazırda demo rejimdə işləyir.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Kalkulyatorların düzgünlüyünə necə əmin ola bilərəm?</summary>
+        <p>Kalkulyatorlar standart mühəndislik düsturlarına əsaslanır (məsələn, armatur çəkisi üçün d²/162 düsturu). Yenə də son nəticələri layihə mühəndisi ilə təsdiqləməyi tövsiyə edirik.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Yeni sənəd növü əlavə edilməsini necə tələb edə bilərəm?</summary>
+        <p>Əlaqə səhifəsindən və ya WhatsApp icması vasitəsilə tələbinizi bizə göndərin.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Məlumatlarım harada saxlanılır?</summary>
+        <p>Sənəd formalarına daxil etdiyiniz məlumatlar yalnız brauzerinizdə emal olunur və PDF yaradıldıqdan sonra serverə göndərilmir. Ətraflı məlumat üçün Məxfilik Siyasətinə baxın.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<div data-include="footer.html"></div>
+<script type="module" src="./include.js"></script>
+<script type="module" src="./app.js"></script>
+</body>
+</html>

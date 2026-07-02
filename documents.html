@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Sənədlər Kitabxanası — IndustrCons Docs</title>
+<meta name="description" content="HSE, KEY/KEN, Sənəd İdarəetməsi və Sahə Mühəndisliyi üçün 80+ hazır PDF sənəd şablonu. Axtar, filtrlə, PDF hazırla." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div data-include="header.html"></div>
+
+<section style="padding-top:var(--sp-8);padding-bottom:var(--sp-4);">
+  <div class="container">
+    <span class="section-eyebrow">Sənəd Kitabxanası</span>
+    <h1 style="font-size:2.25rem;">Bütün Sənədlər</h1>
+    <p style="max-width:600px;">HSE, KEY/KEN, Sənəd İdarəetməsi və Sahə Mühəndisliyi üzrə hazır PDF şablonları axtarın və hazırlayın.</p>
+    <div class="chip-row" data-category-chips style="margin:var(--sp-5) 0;"></div>
+  </div>
+</section>
+
+<section style="padding-top:0;">
+  <div class="container">
+    <div class="filter-bar" data-filter-bar></div>
+    <p data-result-count style="font-size:0.85rem;margin-bottom:var(--sp-4);"></p>
+    <div class="grid grid-4" data-doc-grid></div>
+  </div>
+</section>
+
+<div data-include="footer.html"></div>
+
+<script type="module">
+import "./include.js";
+import "./app.js";
+import { initDocumentsBrowser, initCategoryChips } from "./documents.js";
+
+document.addEventListener("partials:loaded", async () => {
+  await initDocumentsBrowser({ gridSelector: "[data-doc-grid]" });
+  await initCategoryChips("[data-category-chips]");
+});
+</script>
+</body>
+</html>

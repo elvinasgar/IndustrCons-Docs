@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bilik Mərkəzi — IndustrCons Docs</title>
+<meta name="description" content="NCR, RFI, MIR, BOQ, JSA, Method Statement və digər tikinti terminlərinin peşəkar izahı." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div data-include="header.html"></div>
+
+<section style="padding-top:var(--sp-8);padding-bottom:var(--sp-4);">
+  <div class="container">
+    <span class="section-eyebrow">Bilik Mərkəzi</span>
+    <h1 style="font-size:2.25rem;">Tikinti Terminləri və Bələdçilər</h1>
+    <p style="max-width:600px;">Sahədə tez-tez qarşılaşdığınız qısaltmaların və sənəd növlərinin peşəkar izahı.</p>
+  </div>
+</section>
+
+<section style="padding-top:0;">
+  <div class="container">
+    <div class="grid grid-2" data-knowledge-grid></div>
+  </div>
+</section>
+
+<div data-include="footer.html"></div>
+
+<script type="module">
+import "./include.js";
+import "./app.js";
+import { getKnowledgeDB } from "./data.js";
+
+document.addEventListener("partials:loaded", async () => {
+  const { articles } = await getKnowledgeDB();
+  const grid = document.querySelector("[data-knowledge-grid]");
+  grid.innerHTML = articles.map(a => `
+    <div class="card reveal">
+      <h3 style="font-size:1.1rem;">${a.title_az}</h3>
+      <p style="font-size:0.88rem;">${a.body_az}</p>
+    </div>`).join("");
+  grid.querySelectorAll(".reveal").forEach(el => requestAnimationFrame(()=>el.classList.add("in")));
+});
+</script>
+</body>
+</html>

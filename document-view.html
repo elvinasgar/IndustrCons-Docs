@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Sənəd — IndustrCons Docs</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div data-include="header.html"></div>
+
+<section style="padding-top:var(--sp-8);">
+  <div class="container" data-doc-viewer>
+    <div class="skeleton" style="height:40px;width:220px;margin-bottom:var(--sp-4);"></div>
+    <div class="skeleton" style="height:300px;"></div>
+  </div>
+</section>
+
+<div data-include="footer.html"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script>
+<script type="module">
+import "./include.js";
+import "./app.js";
+import { initDocumentViewer } from "./documents.js";
+
+document.addEventListener("partials:loaded", () => {
+  initDocumentViewer();
+});
+</script>
+</body>
+</html>

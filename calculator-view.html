@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Kalkulyator — IndustrCons Docs</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div data-include="header.html"></div>
+
+<section style="padding-top:var(--sp-8);">
+  <div class="container" data-calc-viewer>
+    <div class="skeleton" style="height:40px;width:220px;margin-bottom:var(--sp-4);"></div>
+    <div class="skeleton" style="height:280px;"></div>
+  </div>
+</section>
+
+<div data-include="footer.html"></div>
+
+<script type="module">
+import "./include.js";
+import "./app.js";
+import { initCalculatorView } from "./calculators.js";
+document.addEventListener("partials:loaded", () => initCalculatorView());
+</script>
+</body>
+</html>

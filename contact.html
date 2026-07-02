@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Əlaqə — IndustrCons Docs</title>
+<meta name="description" content="IndustrCons Docs ilə əlaqə saxlayın: elvinasgarov12@gmail.com, +994 77 588 97 27, WhatsApp icması." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div data-include="header.html"></div>
+
+<section style="padding-top:var(--sp-8);">
+  <div class="container">
+    <span class="section-eyebrow">Əlaqə</span>
+    <h1 style="font-size:2.25rem;">Bizimlə Əlaqə Saxlayın</h1>
+    <p style="max-width:600px;">Sualınız, təklifiniz və ya yeni sənəd/kalkulyator tələbiniz var? Aşağıdakı kanallardan bizə çatın.</p>
+
+    <div class="grid grid-3" style="margin-top:var(--sp-6);">
+      <div class="card reveal">
+        <h4>E-poçt</h4>
+        <p><a href="mailto:elvinasgarov12@gmail.com" style="color:var(--brand);font-weight:600;">elvinasgarov12@gmail.com</a></p>
+      </div>
+      <div class="card reveal">
+        <h4>Telefon</h4>
+        <p><a href="tel:+994775889727" style="color:var(--brand);font-weight:600;">+994 77 588 97 27</a></p>
+      </div>
+      <div class="card reveal">
+        <h4>WhatsApp İcması</h4>
+        <p><a href="https://chat.whatsapp.com/JS7XVLh8v2I4HPLLshwTr2" target="_blank" rel="noopener" style="color:var(--brand);font-weight:600;">İcmaya qoşul →</a></p>
+      </div>
+    </div>
+
+    <div class="card reveal" style="margin-top:var(--sp-6);max-width:560px;">
+      <h3>Mesaj Göndər</h3>
+      <form id="contactForm" style="display:flex;flex-direction:column;gap:var(--sp-4);">
+        <div class="field"><label>Ad Soyad</label><input type="text" required /></div>
+        <div class="field"><label>E-poçt</label><input type="email" required /></div>
+        <div class="field"><label>Mesaj</label><textarea rows="4" required></textarea></div>
+        <button type="submit" class="btn btn-primary">Göndər</button>
+        <p id="contactNote" style="font-size:0.8rem;"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<div data-include="footer.html"></div>
+<script type="module" src="./include.js"></script>
+<script type="module" src="./app.js"></script>
+<script>
+document.getElementById("contactForm").addEventListener("submit", (e) => {
+  e.preventDefault();
+  const [name, email] = e.target.querySelectorAll("input");
+  const msg = e.target.querySelector("textarea").value;
+  window.location.href = `mailto:elvinasgarov12@gmail.com?subject=${encodeURIComponent("IndustrCons Docs — Mesaj: " + name.value)}&body=${encodeURIComponent(msg + "\n\n" + email.value)}`;
+});
+</script>
+</body>
+</html>
