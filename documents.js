@@ -224,10 +224,21 @@ export async function initDocumentViewer() {
 
   const form = root.querySelector("[data-form]");
 
-  root.querySelector("[data-preview-btn]").addEventListener("click", () => {
-    const values = collectFormValues(form);
-    const pdf = buildDocumentPDF(doc, values);
-    window.open(pdf.output("bloburl"), "_blank");
+  root.querySelector("[data-preview-btn]").addEventListener("click", async (e) => {
+    const btn = e.currentTarget;
+    const originalLabel = btn.textContent;
+    btn.disabled = true;
+    btn.innerHTML = `<span class="spinner"></span> Hazırlanır...`;
+    try {
+      const values = collectFormValues(form);
+      const pdf = await buildDocumentPDF(doc, values);
+      window.open(pdf.output("bloburl"), "_blank");
+    } catch (err) {
+      alert("PDF hazırlanmadı: " + err.message);
+    } finally {
+      btn.disabled = false;
+      btn.textContent = originalLabel;
+    }
   });
 
   root.querySelector("[data-download-btn]").addEventListener("click", async (e) => {
@@ -247,9 +258,17 @@ export async function initDocumentViewer() {
       }
     }
 
-    const pdf = buildDocumentPDF(doc, values);
-    pdf.save(`${doc.code}-${doc.id}.pdf`);
-    btn.disabled = false;
-    btn.textContent = "PDF Yenidən Endir";
+    btn.disabled = true;
+    btn.innerHTML = `<span class="spinner"></span> PDF hazırlanır...`;
+    try {
+      const pdf = await buildDocumentPDF(doc, values);
+      pdf.save(`${doc.code}-${doc.id}.pdf`);
+      btn.textContent = "PDF Yenidən Endir";
+    } catch (err) {
+      alert("PDF hazırlanmadı: " + err.message);
+      btn.textContent = "Aç və PDF Endir — 2 ₼";
+    } finally {
+      btn.disabled = false;
+    }
   });
 }
