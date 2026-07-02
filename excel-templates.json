@@ -1,0 +1,16 @@
+{
+  "templates": [
+    {"id":"concrete-consumption","title_az":"Beton Sərfiyyatı Cədvəli","desc_az":"Elementlərə görə beton həcmi, tarix və kub testi qeydləri ilə avtomatik cəmlənən cədvəl.","columns":["№","Element","Ölçülər","Həcm (m³)","Tarix","Kub Nömrəsi","Qeyd"]},
+    {"id":"steel-weight-tracking","title_az":"Polad Çəki İzləmə Cədvəli","desc_az":"Diametr və uzunluğa görə avtomatik çəki hesablayan armatur izləmə cədvəli.","columns":["№","Diametr (mm)","Uzunluq (m)","Ədəd","Çəki (kg)","Element","Tarix"]},
+    {"id":"material-tracking","title_az":"Material İzləmə Cədvəli","desc_az":"Sifariş, çatdırılma və sahədə istifadə olunan material miqdarını izləyir.","columns":["№","Material","Sifariş Miqdarı","Çatdırılan","İstifadə Olunan","Qalıq","Tarix"]},
+    {"id":"cost-tracking","title_az":"Xərc İzləmə Cədvəli","desc_az":"Büdcə və faktiki xərcləri müqayisə edən avtomatik hesablanan cədvəl.","columns":["№","Kateqoriya","Büdcə (AZN)","Faktiki (AZN)","Fərq (AZN)","Faiz (%)"]},
+    {"id":"equipment-tracking","title_az":"Avadanlıq İzləmə Cədvəli","desc_az":"Avadanlığın yeri, statusu və istismar saatlarını izləyir.","columns":["№","Avadanlıq","Model","Yer","Status","İşlək Saat","Son Baxış"]},
+    {"id":"daily-progress-excel","title_az":"Gündəlik İrəliləyiş Cədvəli","desc_az":"Planlaşdırılmış və faktiki icra faizini müqayisə edən gündəlik izləmə cədvəli.","columns":["Tarix","Fəaliyyət","Planlaşdırılan (%)","Faktiki (%)","Fərq","Qeyd"]},
+    {"id":"labour-attendance","title_az":"İşçi Davamiyyəti Cədvəli","desc_az":"İşçilərin gündəlik davamiyyətini və iş saatlarını qeydə alır.","columns":["№","Ad Soyad","Vəzifə","Giriş","Çıxış","İş Saatı","Qeyd"]},
+    {"id":"boq-template","title_az":"BOQ (İşlərin Həcmi) Şablonu","desc_az":"Vahid qiymətə görə avtomatik cəm hesablayan işlərin həcmi cədvəli.","columns":["№","İş Təsviri","Vahid","Miqdar","Vahid Qiymət (AZN)","Ümumi (AZN)"]},
+    {"id":"procurement-template","title_az":"Təchizat (Procurement) Cədvəli","desc_az":"Sifarişlərin statusunu və çatdırılma tarixlərini izləyir.","columns":["№","Material/Xidmət","Təchizatçı","Sifariş Tarixi","Gözlənilən Tarix","Status"]},
+    {"id":"payment-certificate","title_az":"Ödəniş Sertifikatı Şablonu","desc_az":"İcra olunmuş işə görə mərhələli ödəniş hesablamasını aparır.","columns":["№","İş Bölməsi","Müqavilə Məbləği","Bu Ana Qədər İcra (%)","Cari Ödəniş (AZN)"]},
+    {"id":"cash-flow","title_az":"Pul Vəsaitlərinin Hərəkəti (Cash Flow)","desc_az":"Aylıq daxilolma və xərcləri proqnozlaşdıran cədvəl.","columns":["Ay","Planlaşdırılan Gəlir","Faktiki Gəlir","Planlaşdırılan Xərc","Faktiki Xərc","Qalıq"]},
+    {"id":"material-inventory","title_az":"Material Anbar Cədvəli","desc_az":"Anbarda olan material qalıqlarını real vaxtda izləyir.","columns":["№","Material","Vahid","Giriş","Çıxış","Qalıq","Minimum Səviyyə"]}
+  ]
+}
