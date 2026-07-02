@@ -1,0 +1,209 @@
+{
+  "tools": [
+    {
+      "id": "triangle",
+      "title_az": "Üçbucaq",
+      "engine": "triangle",
+      "desc": "Sahə və perimetri hesablayır.",
+      "inputs": [
+        {
+          "key": "base",
+          "label": "Əsas (m)",
+          "type": "number"
+        },
+        {
+          "key": "height",
+          "label": "Hündürlük (m)",
+          "type": "number"
+        },
+        {
+          "key": "sideA",
+          "label": "Tərəf A (m)",
+          "type": "number"
+        },
+        {
+          "key": "sideB",
+          "label": "Tərəf B (m)",
+          "type": "number"
+        },
+        {
+          "key": "sideC",
+          "label": "Tərəf C (m)",
+          "type": "number"
+        }
+      ]
+    },
+    {
+      "id": "rectangle",
+      "title_az": "Düzbucaqlı",
+      "engine": "rectangle",
+      "desc": "Sahə və perimetri hesablayır.",
+      "inputs": [
+        {
+          "key": "length",
+          "label": "Uzunluq (m)",
+          "type": "number"
+        },
+        {
+          "key": "width",
+          "label": "En (m)",
+          "type": "number"
+        }
+      ]
+    },
+    {
+      "id": "circle",
+      "title_az": "Dairə",
+      "engine": "circle",
+      "desc": "Sahə və perimetri (çevrə) hesablayır.",
+      "inputs": [
+        {
+          "key": "radius",
+          "label": "Radius (m)",
+          "type": "number"
+        }
+      ]
+    },
+    {
+      "id": "trapezoid",
+      "title_az": "Trapesiya",
+      "engine": "trapezoid",
+      "desc": "Sahəni hesablayır.",
+      "inputs": [
+        {
+          "key": "a",
+          "label": "Alt əsas (m)",
+          "type": "number"
+        },
+        {
+          "key": "b",
+          "label": "Üst əsas (m)",
+          "type": "number"
+        },
+        {
+          "key": "height",
+          "label": "Hündürlük (m)",
+          "type": "number"
+        }
+      ]
+    },
+    {
+      "id": "cylinder",
+      "title_az": "Silindr",
+      "engine": "cylinder",
+      "desc": "Həcm və səthi sahəni hesablayır.",
+      "inputs": [
+        {
+          "key": "radius",
+          "label": "Radius (m)",
+          "type": "number"
+        },
+        {
+          "key": "height",
+          "label": "Hündürlük (m)",
+          "type": "number"
+        }
+      ]
+    },
+    {
+      "id": "cone",
+      "title_az": "Konus",
+      "engine": "cone",
+      "desc": "Həcmi hesablayır.",
+      "inputs": [
+        {
+          "key": "radius",
+          "label": "Radius (m)",
+          "type": "number"
+        },
+        {
+          "key": "height",
+          "label": "Hündürlük (m)",
+          "type": "number"
+        }
+      ]
+    },
+    {
+      "id": "sphere",
+      "title_az": "Kürə",
+      "engine": "sphere",
+      "desc": "Həcm və səthi sahəni hesablayır.",
+      "inputs": [
+        {
+          "key": "radius",
+          "label": "Radius (m)",
+          "type": "number"
+        }
+      ]
+    },
+    {
+      "id": "pipe-section",
+      "title_az": "Boru (Halqavari) Kəsik",
+      "engine": "pipeSection",
+      "desc": "Boru kəsiyinin sahəsini hesablayır.",
+      "inputs": [
+        {
+          "key": "outerD",
+          "label": "Xarici diametr (mm)",
+          "type": "number"
+        },
+        {
+          "key": "innerD",
+          "label": "Daxili diametr (mm)",
+          "type": "number"
+        }
+      ]
+    },
+    {
+      "id": "i-beam",
+      "title_az": "I-Profil (I Beam)",
+      "engine": "iBeam",
+      "desc": "Kəsik sahəsini təxmini hesablayır.",
+      "inputs": [
+        {
+          "key": "h",
+          "label": "Hündürlük (mm)",
+          "type": "number"
+        },
+        {
+          "key": "b",
+          "label": "En (mm)",
+          "type": "number"
+        },
+        {
+          "key": "tw",
+          "label": "Divar qalınlığı (mm)",
+          "type": "number"
+        },
+        {
+          "key": "tf",
+          "label": "Flanş qalınlığı (mm)",
+          "type": "number"
+        }
+      ]
+    },
+    {
+      "id": "box-section",
+      "title_az": "Qutu Kəsik (Box Section)",
+      "engine": "boxSection",
+      "desc": "Kəsik sahəsini hesablayır.",
+      "inputs": [
+        {
+          "key": "h",
+          "label": "Hündürlük (mm)",
+          "type": "number"
+        },
+        {
+          "key": "b",
+          "label": "En (mm)",
+          "type": "number"
+        },
+        {
+          "key": "t",
+          "label": "Divar qalınlığı (mm)",
+          "type": "number"
+        }
+      ]
+    }
+  ]
+}
