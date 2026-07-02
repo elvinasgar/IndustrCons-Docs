@@ -1,0 +1,561 @@
+{
+  "categories": [
+    {
+      "id": "concrete",
+      "title_az": "Beton Kalkulyatorları"
+    },
+    {
+      "id": "steel",
+      "title_az": "Metal/Armatur Kalkulyatorları"
+    },
+    {
+      "id": "materials",
+      "title_az": "Material Kalkulyatorları"
+    },
+    {
+      "id": "structural",
+      "title_az": "Konstruksiya Kalkulyatorları"
+    },
+    {
+      "id": "earthworks",
+      "title_az": "Torpaq İşləri Kalkulyatorları"
+    },
+    {
+      "id": "geometry",
+      "title_az": "Həndəsi Alətlər"
+    }
+  ],
+  "calculators": [
+    {
+      "id": "concrete-volume",
+      "title_az": "Beton Həcmi Kalkulyatoru",
+      "category": "concrete",
+      "engine": "concreteVolume",
+      "desc": "Uzunluq, en və hündürlüyə əsasən beton həcmini (m³) hesablayır.",
+      "inputs": [
+        {
+          "key": "length",
+          "label": "Uzunluq (m)",
+          "type": "number"
+        },
+        {
+          "key": "width",
+          "label": "En (m)",
+          "type": "number"
+        },
+        {
+          "key": "height",
+          "label": "Qalınlıq (m)",
+          "type": "number"
+        },
+        {
+          "key": "wastage",
+          "label": "Ehtiyat faizi (%)",
+          "type": "number",
+          "default": 5
+        }
+      ]
+    },
+    {
+      "id": "concrete-mix",
+      "title_az": "Beton Qarışığı Kalkulyatoru (Sement/Qum/Çınqıl)",
+      "category": "concrete",
+      "engine": "concreteMix",
+      "desc": "M-nişanlı beton üçün sement, qum və çınqıl miqdarını hesablayır (1:2:4 tipli nisbətlər).",
+      "inputs": [
+        {
+          "key": "volume",
+          "label": "Beton həcmi (m³)",
+          "type": "number"
+        },
+        {
+          "key": "ratioCement",
+          "label": "Sement nisbəti",
+          "type": "number",
+          "default": 1
+        },
+        {
+          "key": "ratioSand",
+          "label": "Qum nisbəti",
+          "type": "number",
+          "default": 2
+        },
+        {
+          "key": "ratioAggregate",
+          "label": "Çınqıl nisbəti",
+          "type": "number",
+          "default": 4
+        }
+      ]
+    },
+    {
+      "id": "rebar-weight",
+      "title_az": "Armaturun Çəkisi Kalkulyatoru",
+      "category": "steel",
+      "engine": "rebarWeight",
+      "desc": "Diametr və uzunluğa görə armaturun çəkisini (kg) hesablayır (d²/162 düsturu).",
+      "inputs": [
+        {
+          "key": "diameter",
+          "label": "Diametr (mm)",
+          "type": "select",
+          "options": [
+            6,
+            8,
+            10,
+            12,
+            14,
+            16,
+            18,
+            20,
+            22,
+            25,
+            28,
+            32
+          ]
+        },
+        {
+          "key": "length",
+          "label": "Ümumi uzunluq (m)",
+          "type": "number"
+        },
+        {
+          "key": "qty",
+          "label": "Ədəd",
+          "type": "number",
+          "default": 1
+        }
+      ]
+    },
+    {
+      "id": "rebar-cutting-list",
+      "title_az": "Armatur Kəsmə Siyahısı",
+      "category": "steel",
+      "engine": "rebarCutting",
+      "desc": "Elementin ölçüsünə və addımına görə lazım olan armatur çubuqlarının sayını hesablayır.",
+      "inputs": [
+        {
+          "key": "memberLength",
+          "label": "Elementin uzunluğu (m)",
+          "type": "number"
+        },
+        {
+          "key": "spacing",
+          "label": "Addım (mm)",
+          "type": "number"
+        },
+        {
+          "key": "cover",
+          "label": "Kənar məsafə (mm)",
+          "type": "number",
+          "default": 50
+        }
+      ]
+    },
+    {
+      "id": "steel-weight",
+      "title_az": "Polad Çəki Kalkulyatoru (Profil)",
+      "category": "steel",
+      "engine": "steelSectionWeight",
+      "desc": "Sıxlığa əsasən polad profilin ümumi çəkisini hesablayır.",
+      "inputs": [
+        {
+          "key": "unitWeight",
+          "label": "Metr üzrə çəki (kg/m)",
+          "type": "number"
+        },
+        {
+          "key": "length",
+          "label": "Uzunluq (m)",
+          "type": "number"
+        },
+        {
+          "key": "qty",
+          "label": "Ədəd",
+          "type": "number",
+          "default": 1
+        }
+      ]
+    },
+    {
+      "id": "brick-calculator",
+      "title_az": "Kərpic Kalkulyatoru",
+      "category": "materials",
+      "engine": "brickCalc",
+      "desc": "Divar sahəsinə görə lazım olan kərpic sayını hesablayır.",
+      "inputs": [
+        {
+          "key": "wallArea",
+          "label": "Divar sahəsi (m²)",
+          "type": "number"
+        },
+        {
+          "key": "brickLength",
+          "label": "Kərpic uzunluğu (mm)",
+          "type": "number",
+          "default": 250
+        },
+        {
+          "key": "brickHeight",
+          "label": "Kərpic hündürlüyü (mm)",
+          "type": "number",
+          "default": 65
+        },
+        {
+          "key": "mortarJoint",
+          "label": "Məhlul tikişi (mm)",
+          "type": "number",
+          "default": 10
+        },
+        {
+          "key": "wastage",
+          "label": "Ehtiyat (%)",
+          "type": "number",
+          "default": 5
+        }
+      ]
+    },
+    {
+      "id": "block-calculator",
+      "title_az": "Blok Kalkulyatoru",
+      "category": "materials",
+      "engine": "blockCalc",
+      "desc": "Divar sahəsinə görə lazım olan qazbeton/beton blok sayını hesablayır.",
+      "inputs": [
+        {
+          "key": "wallArea",
+          "label": "Divar sahəsi (m²)",
+          "type": "number"
+        },
+        {
+          "key": "blockLength",
+          "label": "Blok uzunluğu (mm)",
+          "type": "number",
+          "default": 600
+        },
+        {
+          "key": "blockHeight",
+          "label": "Blok hündürlüyü (mm)",
+          "type": "number",
+          "default": 200
+        },
+        {
+          "key": "wastage",
+          "label": "Ehtiyat (%)",
+          "type": "number",
+          "default": 5
+        }
+      ]
+    },
+    {
+      "id": "tile-calculator",
+      "title_az": "Kafel/Plitka Kalkulyatoru",
+      "category": "materials",
+      "engine": "tileCalc",
+      "desc": "Sahəyə görə lazım olan kafel sayını hesablayır.",
+      "inputs": [
+        {
+          "key": "roomArea",
+          "label": "Otağın sahəsi (m²)",
+          "type": "number"
+        },
+        {
+          "key": "tileLength",
+          "label": "Kafel uzunluğu (mm)",
+          "type": "number",
+          "default": 600
+        },
+        {
+          "key": "tileWidth",
+          "label": "Kafel eni (mm)",
+          "type": "number",
+          "default": 600
+        },
+        {
+          "key": "wastage",
+          "label": "Ehtiyat (%)",
+          "type": "number",
+          "default": 10
+        }
+      ]
+    },
+    {
+      "id": "paint-calculator",
+      "title_az": "Boya Kalkulyatoru",
+      "category": "materials",
+      "engine": "paintCalc",
+      "desc": "Sahəyə görə lazım olan boya miqdarını (litr) hesablayır.",
+      "inputs": [
+        {
+          "key": "wallArea",
+          "label": "Sahə (m²)",
+          "type": "number"
+        },
+        {
+          "key": "coverage",
+          "label": "1 litrin əhatə etdiyi sahə (m²)",
+          "type": "number",
+          "default": 10
+        },
+        {
+          "key": "coats",
+          "label": "Qat sayı",
+          "type": "number",
+          "default": 2
+        }
+      ]
+    },
+    {
+      "id": "excavation-volume",
+      "title_az": "Qazıntı Həcmi Kalkulyatoru",
+      "category": "earthworks",
+      "engine": "excavationVolume",
+      "desc": "Uzunluq, en və dərinliyə görə qazıntı həcmini (m³) hesablayır.",
+      "inputs": [
+        {
+          "key": "length",
+          "label": "Uzunluq (m)",
+          "type": "number"
+        },
+        {
+          "key": "width",
+          "label": "En (m)",
+          "type": "number"
+        },
+        {
+          "key": "depth",
+          "label": "Dərinlik (m)",
+          "type": "number"
+        },
+        {
+          "key": "bulking",
+          "label": "Boşalma əmsalı (%)",
+          "type": "number",
+          "default": 20
+        }
+      ]
+    },
+    {
+      "id": "backfill-volume",
+      "title_az": "Doldurma (Backfill) Həcmi Kalkulyatoru",
+      "category": "earthworks",
+      "engine": "backfillVolume",
+      "desc": "Qazıntı həcmindən struktur həcmini çıxaraq doldurma həcmini hesablayır.",
+      "inputs": [
+        {
+          "key": "excavationVolume",
+          "label": "Qazıntı həcmi (m³)",
+          "type": "number"
+        },
+        {
+          "key": "structureVolume",
+          "label": "Struktur həcmi (m³)",
+          "type": "number"
+        },
+        {
+          "key": "compaction",
+          "label": "Sıxlaşma əmsalı (%)",
+          "type": "number",
+          "default": 15
+        }
+      ]
+    },
+    {
+      "id": "slab-calculator",
+      "title_az": "Döşəmə Plitəsi (Slab) Kalkulyatoru",
+      "category": "structural",
+      "engine": "slabCalc",
+      "desc": "Döşəmə plitəsi üçün beton həcmi və orta armatur çəkisini hesablayır.",
+      "inputs": [
+        {
+          "key": "length",
+          "label": "Uzunluq (m)",
+          "type": "number"
+        },
+        {
+          "key": "width",
+          "label": "En (m)",
+          "type": "number"
+        },
+        {
+          "key": "thickness",
+          "label": "Qalınlıq (mm)",
+          "type": "number",
+          "default": 150
+        },
+        {
+          "key": "steelRatio",
+          "label": "Armatur nisbəti (kg/m³)",
+          "type": "number",
+          "default": 80
+        }
+      ]
+    },
+    {
+      "id": "beam-calculator",
+      "title_az": "Tir (Beam) Kalkulyatoru",
+      "category": "structural",
+      "engine": "beamCalc",
+      "desc": "Tirin beton həcmini və təxmini armatur çəkisini hesablayır.",
+      "inputs": [
+        {
+          "key": "length",
+          "label": "Uzunluq (m)",
+          "type": "number"
+        },
+        {
+          "key": "width",
+          "label": "En (mm)",
+          "type": "number"
+        },
+        {
+          "key": "depth",
+          "label": "Hündürlük (mm)",
+          "type": "number"
+        },
+        {
+          "key": "qty",
+          "label": "Ədəd",
+          "type": "number",
+          "default": 1
+        },
+        {
+          "key": "steelRatio",
+          "label": "Armatur nisbəti (kg/m³)",
+          "type": "number",
+          "default": 120
+        }
+      ]
+    },
+    {
+      "id": "column-calculator",
+      "title_az": "Sütun (Column) Kalkulyatoru",
+      "category": "structural",
+      "engine": "columnCalc",
+      "desc": "Sütunun beton həcmini və təxmini armatur çəkisini hesablayır.",
+      "inputs": [
+        {
+          "key": "width",
+          "label": "En (mm)",
+          "type": "number"
+        },
+        {
+          "key": "depth",
+          "label": "Dərinlik (mm)",
+          "type": "number"
+        },
+        {
+          "key": "height",
+          "label": "Hündürlük (m)",
+          "type": "number"
+        },
+        {
+          "key": "qty",
+          "label": "Ədəd",
+          "type": "number",
+          "default": 1
+        },
+        {
+          "key": "steelRatio",
+          "label": "Armatur nisbəti (kg/m³)",
+          "type": "number",
+          "default": 150
+        }
+      ]
+    },
+    {
+      "id": "footing-calculator",
+      "title_az": "Təməl (Footing) Kalkulyatoru",
+      "category": "structural",
+      "engine": "footingCalc",
+      "desc": "Ayrı təməlin beton həcmini hesablayır.",
+      "inputs": [
+        {
+          "key": "length",
+          "label": "Uzunluq (m)",
+          "type": "number"
+        },
+        {
+          "key": "width",
+          "label": "En (m)",
+          "type": "number"
+        },
+        {
+          "key": "depth",
+          "label": "Dərinlik (m)",
+          "type": "number"
+        },
+        {
+          "key": "qty",
+          "label": "Ədəd",
+          "type": "number",
+          "default": 1
+        }
+      ]
+    },
+    {
+      "id": "stair-calculator",
+      "title_az": "Pilləkən Kalkulyatoru",
+      "category": "structural",
+      "engine": "stairCalc",
+      "desc": "Ümumi hündürlüyə görə pillə sayı, hündürlük və eni hesablayır.",
+      "inputs": [
+        {
+          "key": "totalRise",
+          "label": "Ümumi hündürlük (mm)",
+          "type": "number"
+        },
+        {
+          "key": "riserHeight",
+          "label": "İstənilən pillə hündürlüyü (mm)",
+          "type": "number",
+          "default": 175
+        },
+        {
+          "key": "treadWidth",
+          "label": "İstənilən pillə eni (mm)",
+          "type": "number",
+          "default": 280
+        }
+      ]
+    },
+    {
+      "id": "pipe-calculator",
+      "title_az": "Boru Həcmi Kalkulyatoru",
+      "category": "materials",
+      "engine": "pipeCalc",
+      "desc": "Borunun daxili həcmini və axın parametrlərini hesablayır.",
+      "inputs": [
+        {
+          "key": "diameter",
+          "label": "Daxili diametr (mm)",
+          "type": "number"
+        },
+        {
+          "key": "length",
+          "label": "Uzunluq (m)",
+          "type": "number"
+        }
+      ]
+    },
+    {
+      "id": "slope-gradient",
+      "title_az": "Meyllik/Uklon Kalkulyatoru",
+      "category": "earthworks",
+      "engine": "slopeCalc",
+      "desc": "Üfüqi və şaquli məsafəyə görə meylliyi faiz və dərəcə ilə hesablayır.",
+      "inputs": [
+        {
+          "key": "rise",
+          "label": "Şaquli məsafə (m)",
+          "type": "number"
+        },
+        {
+          "key": "run",
+          "label": "Üfüqi məsafə (m)",
+          "type": "number"
+        }
+      ]
+    }
+  ]
+}
