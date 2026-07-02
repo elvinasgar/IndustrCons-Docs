@@ -2,6 +2,13 @@
 // in the registry. Reads window.jspdf (jsPDF UMD build) + jspdf-autotable,
 // both loaded via CDN script tags on document-view.html.
 //
+// IMPORTANT — Azerbaijani character support:
+// jsPDF's built-in fonts (helvetica/times/courier) only support WinAnsi/
+// Latin-1 and render ə, ş, ğ, ç, ı, ö, ü, İ as garbage or wrong glyphs.
+// We fetch a real Unicode font (Noto Sans, which covers Azerbaijani/Turkish
+// Latin Extended characters) once, embed it into the PDF via jsPDF's
+// addFileToVFS/addFont, and use it for ALL text instead of "helvetica".
+//
 // The layout is driven by `doc.formType` so the SAME engine renders all 86+
 // document types without one-off code per document:
 //   - "report"    -> narrative sections (description / cause / actions)
@@ -13,6 +20,44 @@ const NAVY = [10, 30, 51];
 const BLUE = [27, 75, 122];
 const AMBER = [242, 169, 59];
 const GRAY = [91, 107, 124];
+const FONT = "NotoSans"; // registered name used everywhere below
+
+const FONT_URLS = {
+  normal: "https://raw.githubusercontent.com/notofonts/noto-fonts/refs/heads/main/hinted/ttf/NotoSans/NotoSans-Regular.ttf",
+  bold: "https://raw.githubusercontent.com/notofonts/noto-fonts/refs/heads/main/hinted/ttf/NotoSans/NotoSans-Bold.ttf",
+};
+
+let fontLoadPromise = null;
+
+function arrayBufferToBase64(buffer) {
+  let binary = "";
+  const bytes = new Uint8Array(buffer);
+  const chunk = 0x8000;
+  for (let i = 0; i < bytes.length; i += chunk) {
+    binary += String.fromCharCode(...bytes.subarray(i, i + chunk));
+  }
+  return btoa(binary);
+}
+
+async function fetchFontBase64(url) {
+  const res = await fetch(url);
+  if (!res.ok) throw new Error(`Şrift yüklənmədi: ${url}`);
+  const buf = await res.arrayBuffer();
+  return arrayBufferToBase64(buf);
+}
+
+/** Loads Noto Sans (regular + bold) once and registers it on a jsPDF instance. */
+async function ensureAzerbaijaniFont(pdfDoc) {
+  if (!fontLoadPromise) {
+    fontLoadPromise = Promise.all([fetchFontBase64(FONT_URLS.normal), fetchFontBase64(FONT_URLS.bold)]);
+  }
+  const [regularBase64, boldBase64] = await fontLoadPromise;
+  pdfDoc.addFileToVFS("NotoSans-Regular.ttf", regularBase64);
+  pdfDoc.addFont("NotoSans-Regular.ttf", FONT, "normal");
+  pdfDoc.addFileToVFS("NotoSans-Bold.ttf", boldBase64);
+  pdfDoc.addFont("NotoSans-Bold.ttf", FONT, "bold");
+  pdfDoc.setFont(FONT, "normal");
+}
 
 function header(pdfDoc, doc, meta) {
   const pageWidth = pdfDoc.internal.pageSize.getWidth();
@@ -20,26 +65,26 @@ function header(pdfDoc, doc, meta) {
   pdfDoc.rect(0, 0, pageWidth, 28, "F");
 
   pdfDoc.setTextColor(255, 255, 255);
-  pdfDoc.setFont("helvetica", "bold");
+  pdfDoc.setFont(FONT, "bold");
   pdfDoc.setFontSize(13);
   pdfDoc.text("IndustrCons Docs", 14, 12);
-  pdfDoc.setFont("helvetica", "normal");
+  pdfDoc.setFont(FONT, "normal");
   pdfDoc.setFontSize(8);
   pdfDoc.text("Professional Construction Documentation Platform — Azərbaycan", 14, 18);
 
-  pdfDoc.setFont("courier", "bold");
+  pdfDoc.setFont(FONT, "bold");
   pdfDoc.setFontSize(10);
   pdfDoc.setTextColor(...AMBER);
   const code = `${doc.code}-${meta.docNumber || "0001"}`;
   pdfDoc.text(code, pageWidth - 14, 12, { align: "right" });
-  pdfDoc.setFont("helvetica", "normal");
+  pdfDoc.setFont(FONT, "normal");
   pdfDoc.setFontSize(8);
   pdfDoc.setTextColor(220, 220, 220);
   pdfDoc.text(`Tarix: ${meta.date || "-"}`, pageWidth - 14, 18, { align: "right" });
 
   // Title band
   pdfDoc.setTextColor(...NAVY);
-  pdfDoc.setFont("helvetica", "bold");
+  pdfDoc.setFont(FONT, "bold");
   pdfDoc.setFontSize(16);
   pdfDoc.text(doc.title_az, 14, 40);
   pdfDoc.setDrawColor(...BLUE);
@@ -57,7 +102,7 @@ function metaGrid(pdfDoc, meta, startY) {
     startY,
     body: rows,
     theme: "plain",
-    styles: { fontSize: 9, cellPadding: 2, textColor: NAVY },
+    styles: { font: FONT, fontSize: 9, cellPadding: 2, textColor: NAVY },
     columnStyles: {
       0: { fontStyle: "bold", textColor: GRAY, cellWidth: 32 },
       2: { fontStyle: "bold", textColor: GRAY, cellWidth: 32 },
@@ -82,11 +127,11 @@ function narrativeSections(pdfDoc, formValues, startY) {
   pdfDoc.setFontSize(10);
   sections.forEach(([label, value]) => {
     if (!value) return;
-    pdfDoc.setFont("helvetica", "bold");
+    pdfDoc.setFont(FONT, "bold");
     pdfDoc.setTextColor(...BLUE);
     pdfDoc.text(label, 14, y);
     y += 5;
-    pdfDoc.setFont("helvetica", "normal");
+    pdfDoc.setFont(FONT, "normal");
     pdfDoc.setTextColor(...NAVY);
     const lines = pdfDoc.splitTextToSize(value, pdfDoc.internal.pageSize.getWidth() - 28);
     pdfDoc.text(lines, 14, y);
@@ -102,8 +147,8 @@ function itemsTable(pdfDoc, formValues, startY) {
     head: [["№", "Bənd / Fəaliyyət", "Nəticə", "Qeyd"]],
     body: items.map((it, i) => [i + 1, it.desc || "-", it.status || "-", it.remarks || "-"]),
     theme: "grid",
-    headStyles: { fillColor: BLUE, textColor: 255, fontSize: 9 },
-    styles: { fontSize: 9, textColor: NAVY },
+    headStyles: { font: FONT, fillColor: BLUE, textColor: 255, fontSize: 9 },
+    styles: { font: FONT, fontSize: 9, textColor: NAVY },
     columnStyles: { 0: { cellWidth: 10 } },
   });
   return pdfDoc.lastAutoTable.finalY + 8;
@@ -131,9 +176,9 @@ function signatureBlock(pdfDoc, meta, startY) {
     pdfDoc.text(label, x, y + 23);
     pdfDoc.setFontSize(9);
     pdfDoc.setTextColor(...NAVY);
-    pdfDoc.setFont("helvetica", "bold");
+    pdfDoc.setFont(FONT, "bold");
     pdfDoc.text(name || "____________", x, y + 13);
-    pdfDoc.setFont("helvetica", "normal");
+    pdfDoc.setFont(FONT, "normal");
   });
 
   // Approval stamp seal (drawn, not an image — works with zero external assets)
@@ -172,9 +217,10 @@ function footer(pdfDoc) {
  * @param {object} doc - entry from documents.json
  * @param {object} formValues - values collected from the on-page form
  */
-export function buildDocumentPDF(doc, formValues) {
+export async function buildDocumentPDF(doc, formValues) {
   const { jsPDF } = window.jspdf;
   const pdfDoc = new jsPDF({ unit: "mm", format: "a4" });
+  await ensureAzerbaijaniFont(pdfDoc);
 
   header(pdfDoc, doc, formValues);
   let y = metaGrid(pdfDoc, formValues, 50);
@@ -186,12 +232,12 @@ export function buildDocumentPDF(doc, formValues) {
   }
 
   if (formValues.notes) {
-    pdfDoc.setFont("helvetica", "bold");
+    pdfDoc.setFont(FONT, "bold");
     pdfDoc.setFontSize(10);
     pdfDoc.setTextColor(...BLUE);
     pdfDoc.text("Əlavə Qeydlər", 14, y);
     y += 5;
-    pdfDoc.setFont("helvetica", "normal");
+    pdfDoc.setFont(FONT, "normal");
     pdfDoc.setTextColor(...NAVY);
     const lines = pdfDoc.splitTextToSize(formValues.notes, pdfDoc.internal.pageSize.getWidth() - 28);
     pdfDoc.text(lines, 14, y);
